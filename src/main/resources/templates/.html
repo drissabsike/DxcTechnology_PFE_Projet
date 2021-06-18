@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Register New User</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css">
+<link th:href="@{/styles/cssandjs/register.css}" rel="stylesheet" />
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Portofolio Gestion Projet</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" th:href="@{/}">Home Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/register}">Registrer</a>
+      </ul>
+    </div>
+  </div>
+</nav>
+<body>
+			<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://www.drupal.org/files/dxc_logo_vt_blk_rgb_300.png"style="height: 160px;width: 160px"/>
+                        <h3>Bienvenue dans l'application ClickDown  Gerer Vos Projets</h3>
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Employe ou Chef de Projet ?</h3>
+                                <div class="row register-form">
+                                <form th:action="@{/process_register}" method="post" th:object="${user}">
+                                 	<div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" th:field="*{nom}" placeholder="Nom"  required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" th:field="*{prenom}" placeholder="Prenom" required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" th:field="*{cin}" placeholder="CIN"  required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" th:field="*{telephone}" placeholder="Telephone" required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" th:field="*{email}" placeholder="Email" required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" th:field="*{password}" placeholder="Password" required="required"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" th:field="*{titre}" placeholder="Titre"/>
+                                        </div>
+                                    </div>
+                                    
+                                    	<div class="form-group" >
+                                            <select th:field="*{role_user}"   class="form-control"> <!-- th:field="*{role_user}" -->
+                                            	<option th:each="role:${roles}"
+                                            	th:value="${role.id_role }"
+                                            	th:text="${role.role}"
+                                            	/>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <select th:field="*{experiance}"   class="form-control" >  <!-- th:field="*{experiance}" -->
+                                            <option th:each="experiance:${experiances}"
+                                            	th:value="${experiance.id }"
+                                                th:text="${experiance.niveau_exp}"
+                                             />
+                                            </select>
+                                        </div>
+                                        <input type="submit" class="btnRegister"  value="Ajouter"/>
+                                  </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+</body>
+</html>
