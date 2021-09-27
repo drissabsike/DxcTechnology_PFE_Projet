@@ -1,0 +1,22 @@
+Query for Login;
+****************
+
+SELECT user.name, role.role_name FROM user, role 
+WHERE user.email ='test2@gmail.com' AND user.pwd='123456' 
+AND user.id=(SELECT user_role.user_id from user_role WHERE user_role.role_id=role.id)
+
+Notre Exemple;
+**************
+SELECT user.nom, user.prenom, user.cin ,user.matricule_user, user.email, role.user_role FROM user, role WHERE user.email ='absike@gmail.com' AND user.password='1996' AND user.id=(SELECT user_role.user_id from user_role WHERE user_role.role_id=role.id)
+
+
+INNER JOIN
+**********
+select user.prenom , role.role_name
+FROM user 
+INNER JOIN user_role 
+on user.id=user_role.user_id 
+INNER JOIN role
+on role.id=user_role.role_id
+
+select concat(user.nom,' ',user.prenom) as FullName ,user.cin, user.email, role.role_name FROM user INNER JOIN user_role on user.id=user_role.user_id INNER JOIN role on role.id=user_role.role_id and user.email='absike30@gmail.com' AND user.password='1996'
