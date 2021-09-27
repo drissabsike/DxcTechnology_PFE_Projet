@@ -11,6 +11,12 @@ Calculer la charge des ressources en concertation avec :
 -La charge planifiée sur d’autres projet.
 -Cohérer les charges en fonction du référentiel des taches.
 • Avoir un module de devis pour validation.
+
+# L'architecture Technique (Back end et front)
+
+![image](https://user-images.githubusercontent.com/34870443/134939223-732a99fd-2bbf-49fd-a580-e7950b5bab62.png)
+
+
 # Dashbord
 
 ![image](https://user-images.githubusercontent.com/34870443/134938368-03e258d8-d723-40f5-a8bc-76785adcbbf1.png)
